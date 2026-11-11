@@ -78,6 +78,7 @@
           "name": "The Advocates — Boise Office",
           "address": {"@type": "PostalAddress", "streetAddress": "3040 W Elder St", "addressLocality": "Boise", "addressRegion": "ID", "postalCode": "83705", "addressCountry": "US"},
           "telephone": "+1-208-995-2444",
+          "sameAs": "https://goo.gl/maps/R13bruPmYsb4eYBe9",
           "openingHours": "Mo-Su 00:00-23:59"
         },
         {
@@ -85,6 +86,7 @@
           "name": "The Advocates — Meridian Office",
           "address": {"@type": "PostalAddress", "streetAddress": "1810 S Eagle Rd", "addressLocality": "Meridian", "addressRegion": "ID", "postalCode": "83642", "addressCountry": "US"},
           "telephone": "+1-208-203-9193",
+          "sameAs": "https://www.google.com/maps?cid=11067326127266598265",
           "openingHours": "Mo-Su 00:00-23:59"
         },
         {
@@ -98,19 +100,22 @@
           "name": "The Advocates — Pocatello Office",
           "address": {"@type": "PostalAddress", "streetAddress": "639 S 5th Ave", "addressLocality": "Pocatello", "addressRegion": "ID", "postalCode": "83201", "addressCountry": "US"},
           "telephone": "+1-208-995-2444",
+          "sameAs": "https://goo.gl/maps/5Vd6Xp2ZuCRDmYvb7",
           "openingHours": "Mo-Su 00:00-23:59"
         },
         {
           "@type": "Place",
           "name": "The Advocates — Idaho Falls Office",
           "address": {"@type": "PostalAddress", "streetAddress": "1904 Jennie Lee Drive", "addressLocality": "Idaho Falls", "addressRegion": "ID", "postalCode": "83404", "addressCountry": "US"},
-          "telephone": "+1-208-350-6860"
+          "telephone": "+1-208-350-6860",
+          "sameAs": "https://goo.gl/maps/LsWVnWHhgyPPEj78A"
         },
         {
           "@type": "Place",
           "name": "The Advocates — Twin Falls Office",
           "address": {"@type": "PostalAddress", "streetAddress": "845 N College Rd STE 101", "addressLocality": "Twin Falls", "addressRegion": "ID", "postalCode": "83301", "addressCountry": "US"},
           "telephone": "+1-208-995-2444",
+          "sameAs": "https://goo.gl/maps/g6zyhfNTY6PRXhfd7",
           "openingHours": "Mo-Su 00:00-23:59"
         }
       ],
@@ -250,7 +255,7 @@
       display: grid;
       grid-template-columns: 1.65fr 0.85fr;
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
 
     @media (max-width: 980px){
@@ -274,6 +279,28 @@
     .card p{
       margin: 0 0 12px;
       color: var(--muted);
+    }
+
+    .viewer-card{
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .viewer-card .iframe-wrap{
+      flex: 1;
+      min-height: 780px;
+    }
+
+    .viewer-card iframe{
+      height: 100%;
+      min-height: 780px;
+    }
+
+    .media-sidebar{
+      display: grid;
+      gap: 18px;
+      align-content: start;
     }
 
     .iframe-wrap{
@@ -404,6 +431,25 @@
       margin-bottom: 4px;
     }
 
+    .profile-links{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .profile-links .btn{
+      width: 100%;
+    }
+
+    .profile-note{
+      margin: 12px 0 0;
+      font-size: 13px;
+    }
+
+    @media (max-width: 560px){
+      .profile-links{ grid-template-columns: 1fr; }
+    }
+
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 12px;
@@ -455,7 +501,7 @@
     </header>
 
     <section class="main-grid" aria-label="Press releases and media contact">
-      <div class="card" role="region" aria-label="Press release viewer">
+      <div class="card viewer-card" role="region" aria-label="Press release viewer">
         <div class="viewer-top">
           <div>
             <div class="pill" style="margin-bottom:8px;">Press Release Viewer</div>
@@ -482,7 +528,7 @@
         </p>
       </div>
 
-      <aside style="display:grid; gap:18px;">
+      <aside class="media-sidebar">
         <div class="card" role="region" aria-label="Press release list">
           <h2>Press Releases</h2>
           <p>Select a release to view it on the left.</p>
@@ -530,6 +576,19 @@
             <a class="btn" href="https://idahoadvocates.com/contact/" target="_blank" rel="noopener noreferrer">📋 Free Consultation</a>
             <a id="openCurrentBtn" class="btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open current press release">Open Current PR</a>
           </div>
+        </div>
+
+        <div class="card" role="region" aria-label="Google Business Profiles">
+          <h2>Google Business Profiles</h2>
+          <p>View The Advocates' active Idaho office listings on Google.</p>
+          <div class="profile-links">
+            <a class="btn" href="https://goo.gl/maps/R13bruPmYsb4eYBe9" target="_blank" rel="noopener noreferrer">📍 Boise</a>
+            <a class="btn" href="https://www.google.com/maps?cid=11067326127266598265" target="_blank" rel="noopener noreferrer">📍 Meridian</a>
+            <a class="btn" href="https://goo.gl/maps/LsWVnWHhgyPPEj78A" target="_blank" rel="noopener noreferrer">📍 Idaho Falls</a>
+            <a class="btn" href="https://goo.gl/maps/5Vd6Xp2ZuCRDmYvb7" target="_blank" rel="noopener noreferrer">📍 Pocatello</a>
+            <a class="btn" href="https://goo.gl/maps/g6zyhfNTY6PRXhfd7" target="_blank" rel="noopener noreferrer">📍 Twin Falls</a>
+          </div>
+          <p class="profile-note">Nampa's Google Business Profile is not yet available.</p>
         </div>
       </aside>
     </section>
